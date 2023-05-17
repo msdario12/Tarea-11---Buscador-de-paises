@@ -115,18 +115,11 @@ const paisesLatinoamericanos = [
 	},
 ];
 
-// {
-// 	nombre: 'Argentina',
-// 	ubicacion: 'Sudamérica',
-// 	habitantes: 44938712,
-// 	capital: 'Buenos Aires',
-// },
-
 const copiaArray = [...paisesLatinoamericanos];
-
+// Obtengo elementos del DOM
 const mainTable = document.getElementById('mainTable');
 const inputSearch = document.getElementById('mainSearch');
-
+// Event listener
 inputSearch.addEventListener('keyup', (e) => {
 	const term = String(e.target.value).toLowerCase();
 	if (term.length === 1) {
@@ -135,7 +128,7 @@ inputSearch.addEventListener('keyup', (e) => {
 	}
 	filterTable(copiaArray, term);
 });
-
+// Funcion para renderizar tabla
 function renderTable(array) {
 	mainTable.children[1].innerHTML = '';
 	array.forEach((pais, idx) => {
@@ -164,5 +157,5 @@ function filterFirstLetter(array, chr) {
 	});
 	renderTable(filterArray);
 }
-
+// Render inicial de la tabla
 renderTable(paisesLatinoamericanos);
